@@ -6,7 +6,7 @@ type Props = {
 }
 
 const Container: FC<Props> = ({ children, className }) => {
-    const containerClassName = `max-w-[928px] mx-auto ${className ?? ''}`.trim();
+    const containerClassName = `max-w-[928px] px-4 lg:px-0 mx-auto ${className ?? ''}`.trim();
 
     return (
         <div className={containerClassName}>{children}</div>

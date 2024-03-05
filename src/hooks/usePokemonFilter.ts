@@ -8,7 +8,7 @@ export const usePokemonFilter = (category: string, pageSize: number) => {
     const [searchText, setSearchText] = useState('');
     const [currentPage, setCurrentPage] = useState(0);
 
-    const { data: allPokemons, isLoading } = useQuery({
+    const { data: allPokemons, isLoading, isFetching } = useQuery({
         queryKey: [pokemonKeys.GET_POKEMONS_BY_CATEGORY, category],
         queryFn: async () => {
             const data = await pokemonService.getPokemonsByCategory(category);
@@ -34,6 +34,8 @@ export const usePokemonFilter = (category: string, pageSize: number) => {
     const paginatedItems = filteredItems?.slice(startIndex, endIndex);
     const totalPages = Math.ceil((filteredItems?.length || 0) / pageSize);
 
+    const loading = isLoading || isFetching
+
     return {
         searchText,
         handleSearch,
@@ -41,6 +43,7 @@ export const usePokemonFilter = (category: string, pageSize: number) => {
         totalPages,
         handlePageChange,
         paginatedItems,
-        isLoading,
+        loading,
+        allPokemons
     };
 };

@@ -8,11 +8,12 @@ import BackButton from '@/components/button/BackButton';
 import { usePokemonFilter } from '@/hooks/usePokemonFilter';
 import { Pagination } from '@/components/pagination/PaginationComponent';
 import Skeleton from 'react-loading-skeleton';
+import PaginationInfo from '@/components/pagination/PaginationInfo';
 
 export default function Page({ params }: { params: { category: string } }) {
-    const pageSize = 10;
+    const pageSize = 25;
     const {
-        searchText, handleSearch, currentPage, totalPages, handlePageChange, paginatedItems, isLoading
+        searchText, handleSearch, currentPage, totalPages, handlePageChange, paginatedItems, loading, allPokemons
     } = usePokemonFilter(params.category, pageSize);
 
     return (
@@ -36,11 +37,11 @@ export default function Page({ params }: { params: { category: string } }) {
             </div>
 
             <div className='mt-6 flex flex-wrap gap-4'>
-                {isLoading ?
+                {loading ?
                     <Skeleton
                         count={12}
                         containerClassName='flex flex-wrap gap-2'
-                        className='items-center !w-[218px] !h-[218px] hover:border hover:border-primary-500 rounded-xl' /> :
+                        className='items-center !w-[170px] !h-[170px] hover:border hover:border-primary-500 rounded-xl' /> :
                     paginatedItems?.length === 0 ?
                         <div>No Pokémon found.</div>
                         :
@@ -53,7 +54,10 @@ export default function Page({ params }: { params: { category: string } }) {
             </div>
 
             {paginatedItems && paginatedItems.length > 0 &&
-                <Pagination pagination={{ currentPage, pageSize, totalPages, totalElements: paginatedItems.length, handlePageChange }} showOnSmallScreen={true} />
+                <div className='flex justify-between items-center mt-6'>
+                    <PaginationInfo pagination={{ currentPage, pageSize, totalPages, totalElements: allPokemons?.length ?? 0 }} />
+                    <Pagination pagination={{ currentPage, pageSize, totalPages, totalElements: paginatedItems.length, handlePageChange }} showOnSmallScreen={true} />
+                </div>
             }
         </div>
     );

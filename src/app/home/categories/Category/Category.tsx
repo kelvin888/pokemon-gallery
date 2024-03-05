@@ -8,18 +8,13 @@ import { categoryBackgrounds } from '@/config/categoryBackgrounds'
 
 type Props = {
     category: CategoryType
-    isLoading?: boolean
 }
 
-const Category: FC<Props> = ({ category, isLoading }) => {
+const Category: FC<Props> = ({ category }) => {
 
     const getCategoryBackground = (categoryName: PokemonCategoryName) => {
         return (categoryBackgrounds as Record<PokemonCategoryName, string>)[categoryName] || "#CCCCCC";
     };
-
-    if (isLoading) {
-        return <Skeleton className='!w-[222px] h-[74px] border border-primary-500 rounded-lg flex items-center px-4 cursor-pointer' />
-    }
     return (
         <Link href={`/categories/${category.name.toLowerCase()}`}>
 
