@@ -27,8 +27,8 @@ export const Pagination: React.FC<{
           pageRangeDisplayed={2}
           onPageChange={handlePageChange}
           containerClassName="paginate"
-          previousLabel={<ChevronLeft className="text-gray-20/80" />}
-          nextLabel={<ChevronRight className="text-gray-20/80" />}
+          previousLabel={<ChevronLeft data-cy="pagination-previous-button" className="text-gray-20/80" />}
+          nextLabel={<ChevronRight data-cy="pagination-next-button" className="text-gray-20/80" />}
           disabledClassName={"paginate__link--disabled"}
           activeClassName={"paginate__link--active"}
           nextLinkClassName="bg-none"

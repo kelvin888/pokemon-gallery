@@ -1,4 +1,5 @@
 "use client"
+
 import Image from 'next/image';
 import React from 'react';
 import SearchIcon from "@/assets/images/icons/search.svg";
@@ -21,7 +22,7 @@ export default function Page({ params }: { params: { category: string } }) {
             <Link href={`/`}>
                 <BackButton label='Back to home' />
             </Link>
-            <div className='text-xl font-bold my-4'>
+            <div className='text-xl font-bold my-4' data-cy="category-title">
                 {params.category.toUpperCase()} Pokemons
             </div>
 
@@ -33,6 +34,7 @@ export default function Page({ params }: { params: { category: string } }) {
                     placeholder='Search by name or number'
                     value={searchText}
                     onChange={(e) => handleSearch(e.target.value)}
+                    data-testid="search-input" // Added data-testid attribute
                 />
             </div>
 
@@ -41,9 +43,11 @@ export default function Page({ params }: { params: { category: string } }) {
                     <Skeleton
                         count={12}
                         containerClassName='flex flex-wrap gap-2'
-                        className='items-center !w-[170px] !h-[170px] hover:border hover:border-primary-500 rounded-xl' /> :
+                        className='items-center !w-[170px] !h-[170px] hover:border hover:border-primary-500 rounded-xl'
+                        containerTestId="pokemon-loading-skeleton"
+                    /> :
                     paginatedItems?.length === 0 ?
-                        <div>No Pokémon found.</div>
+                        <div data-cy="no-pokemon-found">No Pokémon found.</div>
                         :
                         paginatedItems?.map((pokemon: any) => (
                             <div key={pokemon.pokemon.name}>

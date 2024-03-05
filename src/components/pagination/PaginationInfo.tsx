@@ -26,7 +26,7 @@ const PaginationInfo: React.FC<Props> = (props) => {
     }
   }
   return (
-    <div>
+    <div data-cy="pagination-information">
       Showing {currentPage * pageSize + 1} to &nbsp;
       {computeToPageNumber()} &nbsp; of &nbsp;
       {totalElements} results

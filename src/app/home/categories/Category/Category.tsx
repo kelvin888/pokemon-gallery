@@ -18,7 +18,7 @@ const Category: FC<Props> = ({ category }) => {
     return (
         <Link href={`/categories/${category.name.toLowerCase()}`}>
 
-            <div style={{ backgroundColor: getCategoryBackground(category.name as PokemonCategoryName) }} className='w-[222px] h-[74px] border text-white font-bold border-primary-500 rounded-lg flex items-center px-4 cursor-pointer'>
+            <div data-cy="pokemon-category" style={{ backgroundColor: getCategoryBackground(category.name as PokemonCategoryName) }} className='w-[222px] h-[74px] border text-white font-bold border-primary-500 rounded-lg flex items-center px-4 cursor-pointer'>
                 <div className='flex gap-3 items-center'>
                     <Image src={Fire} alt='pokemon category' />
                     <div>{category.name}</div>

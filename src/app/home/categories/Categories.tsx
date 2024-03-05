@@ -17,7 +17,7 @@ const Categories = () => {
             <div className='text-xl font-bold'>Categories</div>
             <div className='flex flex-wrap gap-3 mt-7'>
                 {isLoading || isFetching ? (
-                    <Skeleton containerClassName='flex flex-wrap gap-2' count={12} className='!w-[218px] h-[74px] border border-primary-500 rounded-lg flex items-center px-4 cursor-pointer' />
+                    <Skeleton containerClassName='flex flex-wrap gap-2' containerTestId="category-loading-skeleton" count={12} className='!w-[218px] h-[74px] border border-primary-500 rounded-lg flex items-center px-4 cursor-pointer' />
                 ) : (
                     categories && categories.data.results.map(category =>
                         <Category key={category.name} category={category} />

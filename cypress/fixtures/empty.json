@@ -1,0 +1,49 @@
+{
+    "damage_relations": {
+        "double_damage_from": [
+            {
+                "name": "fighting",
+                "url": "https://pokeapi.co/api/v2/type/2/"
+            }
+        ],
+        "double_damage_to": [],
+        "half_damage_from": [],
+        "half_damage_to": [
+            {
+                "name": "rock",
+                "url": "https://pokeapi.co/api/v2/type/6/"
+            },
+            {
+                "name": "steel",
+                "url": "https://pokeapi.co/api/v2/type/9/"
+            }
+        ],
+        "no_damage_from": [
+            {
+                "name": "ghost",
+                "url": "https://pokeapi.co/api/v2/type/8/"
+            }
+        ],
+        "no_damage_to": [
+            {
+                "name": "ghost",
+                "url": "https://pokeapi.co/api/v2/type/8/"
+            }
+        ]
+    },
+    "game_indices": [],
+    "generation": {
+        "name": "generation-i",
+        "url": "https://pokeapi.co/api/v2/generation/1/"
+    },
+    "id": 1,
+    "move_damage_class": {
+        "name": "physical",
+        "url": "https://pokeapi.co/api/v2/move-damage-class/2/"
+    },
+    "moves": [],
+    "name": "normal",
+    "names": [],
+    "past_damage_relations": [],
+    "pokemon": []
+}
