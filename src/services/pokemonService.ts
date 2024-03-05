@@ -7,6 +7,9 @@ const pokemonService = {
   getPokemonsByCategory: async (category: string) => {
     return await pokemonRepository.getPokemonsByCategory(category);
   },
+  getPokemonsByname: async (name: string) => {
+    return await pokemonRepository.getPokemonByName(name);
+  },
 };
 
 export default pokemonService;

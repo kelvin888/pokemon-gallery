@@ -1,17 +1,13 @@
 import Image from 'next/image'
 import React, { FC } from 'react'
-import Fire from "@/assets/images/pokemon-thumbnail.png"
 import { PokemonType } from '@/types/pokemon'
 import Link from 'next/link'
-import Skeleton from 'react-loading-skeleton'
 
 type Props = {
     pokemon: PokemonType
     category: string
 }
 const Pokemon: FC<Props> = ({ pokemon, category }) => {
-    console.log("info reaching me", pokemon.name);
-
 
     return (
         <Link href={`/pokemon/${pokemon?.name?.toLowerCase()}?category=${category.toLowerCase()}`} passHref>

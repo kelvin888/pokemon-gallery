@@ -34,12 +34,45 @@ export type PokemonCategoryResponse = {
     };
 }
 
-export type PokemonResponseType = {
+export type PokemonByCatResponseType = {
     pokemon: PokemonType;
 }
 
 export type PokemonByCategoryResponse = {
     data: {
-        pokemon: PokemonResponseType[];
+        pokemon: PokemonByCatResponseType[];
     };
+}
+
+export type PokemonByIdResponseType = {
+    data: PokemonType;
+}
+
+export type PokemonByNameResponse = {
+    data: {
+        id: number,
+        name: string,
+        weight: number,
+        height: number,
+        types: {
+            type: {
+                name: string,
+                url: string
+            }
+        }[],
+        sprites: {
+            front_shiny: string
+        },
+        abilities: {
+            ability: {
+                name: string
+            }
+        }[],
+        stats: {
+            base_stat: number,
+            stat: {
+                name: string
+            }
+        }[]
+    }
 }
