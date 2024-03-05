@@ -1,11 +1,26 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import PokemonBanner from "@/assets/images/pokemon-banner.png"
+import { ChevronLeft } from 'lucide-react'
+import Link from 'next/link'
 
+export default function Pokemon({
+    params,
+    searchParams,
+}: {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
 
-const page = () => {
     return (
-        <div className='pt-8'>
+        <div>
+            <Link href={searchParams.category ? `/categories/${searchParams?.category}` : '/'}>
+                <div className='flex gap-1 my-4'>
+                    <ChevronLeft /> <span>Back to category</span>
+                </div>
+            </Link>
+
             <Image src={PokemonBanner} alt='pokemon banner' />
 
             <div className='text-center font-bold text-xl my-8'>Pikachu</div>
@@ -60,4 +75,4 @@ const page = () => {
     )
 }
 
-export default page
+

@@ -9,8 +9,7 @@ type Props = {
 }
 const Pokemon: FC<Props> = ({ pokemon }) => {
     return (
-        <Link href={`/pokemon/${pokemon.name}`} passHref>
-
+        <Link href={`/pokemon/${pokemon.name.toLowerCase()}?category=${pokemon.type.toLowerCase()}`} passHref>
             <div className='flex gap-4'>
                 <Image width={99} height={56} src={Fire} alt='pokemon' />
                 <div>
