@@ -1,9 +1,16 @@
-import Image from "next/image";
+import Container from "@/components/container/Container";
+import Categories from "./home/categories/Categories";
+import Header from "../components/header/Header";
+import Hero from "./home/hero/Hero";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      pokemon gallery
+    <main className="bg-gray-300 min-h-screen">
+      <Header />
+      <Container className="flex flex-col gap-9 py-5">
+        <Hero />
+        <Categories />
+      </Container>
     </main>
   );
 }
