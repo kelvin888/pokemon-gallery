@@ -2,17 +2,28 @@ import Image from 'next/image'
 import React, { FC } from 'react'
 import Fire from "@/assets/images/categories/fire.png"
 import Link from 'next/link'
-import { CategoryType } from '@/types/pokemon'
+import { CategoryType, PokemonCategoryName } from '@/types/pokemon'
+import Skeleton from 'react-loading-skeleton'
+import { categoryBackgrounds } from '@/config/categoryBackgrounds'
 
 type Props = {
     category: CategoryType
+    isLoading?: boolean
 }
 
-const Category: FC<Props> = ({ category }) => {
+const Category: FC<Props> = ({ category, isLoading }) => {
+
+    const getCategoryBackground = (categoryName: PokemonCategoryName) => {
+        return (categoryBackgrounds as Record<PokemonCategoryName, string>)[categoryName] || "#CCCCCC";
+    };
+
+    if (isLoading) {
+        return <Skeleton className='!w-[222px] h-[74px] border border-primary-500 rounded-lg flex items-center px-4 cursor-pointer' />
+    }
     return (
         <Link href={`/categories/${category.name.toLowerCase()}`}>
 
-            <div className='w-[208px] h-[74px] border border-primary-500 rounded-lg flex items-center px-4 hover:bg-primary-500 cursor-pointer'>
+            <div style={{ backgroundColor: getCategoryBackground(category.name as PokemonCategoryName) }} className='w-[222px] h-[74px] border text-white font-bold border-primary-500 rounded-lg flex items-center px-4 cursor-pointer'>
                 <div className='flex gap-3 items-center'>
                     <Image src={Fire} alt='pokemon category' />
                     <div>{category.name}</div>

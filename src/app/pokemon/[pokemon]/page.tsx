@@ -2,8 +2,8 @@
 import Image from 'next/image'
 import React from 'react'
 import PokemonBanner from "@/assets/images/pokemon-banner.png"
-import { ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
+import BackButton from '@/components/button/BackButton'
 
 export default function Pokemon({
     params,
@@ -16,9 +16,7 @@ export default function Pokemon({
     return (
         <div>
             <Link href={searchParams.category ? `/categories/${searchParams?.category}` : '/'}>
-                <div className='flex gap-1 my-4'>
-                    <ChevronLeft /> <span>Back to category</span>
-                </div>
+                <BackButton label='Back to category' />
             </Link>
 
             <Image src={PokemonBanner} alt='pokemon banner' />

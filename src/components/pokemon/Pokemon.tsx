@@ -3,20 +3,23 @@ import React, { FC } from 'react'
 import Fire from "@/assets/images/pokemon-thumbnail.png"
 import { PokemonType } from '@/types/pokemon'
 import Link from 'next/link'
+import Skeleton from 'react-loading-skeleton'
 
 type Props = {
     pokemon: PokemonType
+    category: string
 }
-const Pokemon: FC<Props> = ({ pokemon }) => {
+const Pokemon: FC<Props> = ({ pokemon, category }) => {
+    console.log("info reaching me", pokemon.name);
+
+
     return (
-        <Link href={`/pokemon/${pokemon.name.toLowerCase()}?category=${pokemon.type.toLowerCase()}`} passHref>
-            <div className='flex gap-4'>
-                <Image width={99} height={56} src={Fire} alt='pokemon' />
-                <div>
-                    <div className='text-black text-base font-medium'>{pokemon.name}</div>
-                    <div className='text-brown-900 text-sm'>Type: {pokemon.type}</div>
-                </div>
+        <Link href={`/pokemon/${pokemon?.name?.toLowerCase()}?category=${category.toLowerCase()}`} passHref>
+            <div className='flex flex-col items-center w-[220px] gap-4 hover:border hover:border-primary-500 rounded-xl p-2 bg-gray-400'>
+                <Image width={200} height={200} src={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`} alt='pokemon' />
+
             </div>
+            <div className='text-black text-lg font-medium my-2'><span className='font-bold'>{pokemon.name}</span></div>
         </Link>
     )
 }

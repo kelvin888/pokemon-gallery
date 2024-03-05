@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
+import 'react-loading-skeleton/dist/skeleton.css'
+import Providers from "@/utils/provider";
 
 // const inter = Inter({ subsets: ["latin"] });
 const lexend = Lexend({
@@ -21,7 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lexend.className} bg-gray-300`}>{children}</body>
+      <body className={`${lexend.className} bg-gray-300`}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
