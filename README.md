@@ -21,19 +21,27 @@ To run the project locally, follow these steps:
 
 1. Clone the repository to your local machine:
 
-`git clone https://github.com/kelvin888/pokemon-gallery.git`
+```
+git clone https://github.com/kelvin888/pokemon-gallery.git
+```
 
 2. Navigate to the project directory:
 
-`cd pokemon-gallery`
+```
+cd pokemon-gallery
+```
 
 3. Install dependencies:
 
-`npm install`
+```
+npm install
+```
 
 4. Start the development server:
 
-`npm run dev
+```
+npm run dev
+```
 
 5. Open your web browser and navigate to `http://localhost:3000` to view the application.
 
@@ -41,7 +49,9 @@ To run the project locally, follow these steps:
 
 To run the Cypress end-to-end tests, use the following command:
 
-`npm run cypress:dev`
+```
+npm run cypress:dev
+```
 
 This will start Cypress in interactive mode, allowing you to select and run the tests.
 
